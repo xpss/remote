@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/modernizr-2.5.3.js")" type="text/javascript"></script>
+</head>
+<body>
+    <header>
+        <div id="logo"><a href="#">Remote monitoring</a></div>
+        <nav>
+            <ul>
+                @Html.ActionLink("home", "Index", "Home")
+                @Html.ActionLink("phone position", "Position", "Home")
+                <li><a href="#">chart</a></li>
+                <li><a href="#">contacts</a></li>
+                @Html.ActionLink("about", "About", "Home")
+            </ul>
+        </nav>
+    </header>
+    <section id="main">
+        <div id="content">
+            <div id="sidebar">
+                <div id="sidebar_top"></div>
+                <div id="sidebar_text">
+                    <h2>Sidebar header</h2>
+                    <p><strong>Lorem Lipsum</strong> dolor sit amet, consectetuer adipiscing elit. <a href="#">Nullam pharetra</a> tempus nunc. Donec feugiat lorem nec odio. Mauris vitae nisi sed mi rhoncus ultrices.</p>
+                    <h2>Sidebar header</h2>
+                    <p><strong>Lorem Lipsum</strong> dolor sit amet, consectetuer adipiscing elit. <a href="#">Nullam pharetra</a> tempus nunc. Donec feugiat lorem nec odio. Mauris vitae nisi sed mi rhoncus ultrices.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam pharetra tempus nunc. Donec feugiat lorem nec odio. Mauris vitae nisi sed mi rhoncus ultrices.</p>
+                </div>
+                <div id="sidebar_bottom"></div>
+            </div>
+            <div id="text">
+                @RenderBody()
+            </div>
+        </div>
+        <footer>
+            <div id="left_footer">&copy; Copyright 2012<strong> Xpss </strong>design </div>
+            <div id="right_footer">
+                Design by <a href="http://www.xpss.servebeer.com" title="Xpss">Aleh Khvoshch</a>
+            </div>
+        </footer>
+    </section>
+</body>
+</html>

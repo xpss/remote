@@ -9,7 +9,6 @@ namespace DiplomApp.Controllers
 {
     public class HomeController : Controller
     {
-
         public ActionResult Index()
         {
             return View();
@@ -20,6 +19,7 @@ namespace DiplomApp.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult Position()
         {
             return View();

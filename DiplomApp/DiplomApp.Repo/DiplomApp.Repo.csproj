@@ -68,10 +68,12 @@
     <Compile Include="Point.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="PointRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
@@ -96,6 +98,16 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DiplomApp.Helpers\DiplomApp.Helpers.csproj">
+      <Project>{e6e4aaf7-5065-4ad4-a1d6-39986aadf7ed}</Project>
+      <Name>DiplomApp.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DiplomApp.Models\DiplomApp.Models.csproj">
+      <Project>{4ae61a4d-0cbd-474f-9a6d-10e244f80a55}</Project>
+      <Name>DiplomApp.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

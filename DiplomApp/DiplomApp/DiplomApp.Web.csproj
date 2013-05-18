@@ -95,6 +95,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -211,8 +212,15 @@
     </Content>
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Position.cshtml" />
+    <Content Include="Views\Account\Registration.cshtml" />
+    <Content Include="Views\Account\LogOn.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DiplomApp.Helpers\DiplomApp.Helpers.csproj">
+      <Project>{e6e4aaf7-5065-4ad4-a1d6-39986aadf7ed}</Project>
+      <Name>DiplomApp.Helpers</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

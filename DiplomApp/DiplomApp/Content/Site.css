@@ -85,7 +85,7 @@ a {
     }
 
 #logo {
-    padding: 30px 0 120px 0;
+    padding: 30px 0 90px 0;
     color: #fff;
     text-align: center;
 }
@@ -96,6 +96,21 @@ a {
         font-weight: bold;
         font-size: 24px;
         text-transform: uppercase;
+    }
+
+#Registration {
+    height: 30px;
+    text-align: right;
+    width: 740px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+    #Registration a {
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: bold;
     }
 
 nav {
@@ -231,3 +246,7 @@ footer {
         #right_footer a:hover {
             text-decoration: none;
         }
+
+.right {
+    float: right;
+}

@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Security.Cryptography;
 
 namespace DiplomApp.Helpers
 {
-    internal static class CryptoHelper
+    public static class CryptoHelper
     {
         enum CryptoAction : byte
         {
@@ -30,7 +27,7 @@ namespace DiplomApp.Helpers
         {
             byte[] textArray = Encoding.UTF8.GetBytes(text);
             byte[] result = ExecuteCryptoAction(textArray, CryptoAction.Encrypt);
-            return Convert.FromBase64CharArray(result);
+            return null;
         }
 
         private static byte[] ExecuteCryptoAction(byte[] textArray, CryptoAction action)

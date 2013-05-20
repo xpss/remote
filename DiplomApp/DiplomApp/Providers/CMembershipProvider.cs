@@ -4,9 +4,11 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Security;
+using DiplomApp.Services;
 using Ninject;
 using Ninject.Modules;
 using System.Configuration;
+using DiplomApp.Interfaces;
 
 namespace DiplomApp.Providers
 {
@@ -151,16 +153,15 @@ namespace DiplomApp.Providers
 
         public override bool ValidateUser(string username, string password)
         {
-            Assembly asm = Assembly.LoadFrom(ConfigurationManager.AppSettings.Get("path"));//Assembly.LoadFrom(@"D:\Aleh_Khvoshch\универ\курсачи\FinalProject\Project with entity\DAL\bin\Debug\DAL.dll");
+            Assembly asm = Assembly.LoadFrom(ConfigurationManager.AppSettings.Get("path"));
             Type binderType = asm.GetType("DiplomApp.Repo.NinjectBinder");
             var binderModul = (INinjectModule)Activator.CreateInstance(binderType);
             IKernel iK = new StandardKernel(binderModul);
 
-            //UserService us = new UserService(iK.Get<IUserRepository>());
-            //UserEntity user = us.GetUserByLoginAndPass(username, password.GetHashCode());
-            //if (user != null) return true;
-            //else return false;
-            return false;
+            var credentialsService = new CredentialsService(iK.Get<ICredentials>());
+
+            bool test = credentialsService.Login(username, password);
+            return test;
         }
     }
 }

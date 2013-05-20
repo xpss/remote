@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DiplomApp.Services
 {
-    public class Class1
+    public class UserService
     {
     }
 }

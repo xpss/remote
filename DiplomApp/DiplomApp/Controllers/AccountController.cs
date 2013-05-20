@@ -23,12 +23,20 @@ namespace DiplomApp.Controllers
         {
             return View();
         }
+
+        public ActionResult LogOff()
+        {
+            return View();
+        }
         
         [HttpPost]
         public ActionResult LogOn(LogOnModel logOnModel)
         {
-            Membership.ValidateUser(logOnModel.Login, logOnModel.Password);
-            return null;
+            if (Membership.ValidateUser(logOnModel.Login, logOnModel.Password))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return View();
         }
     }
 }

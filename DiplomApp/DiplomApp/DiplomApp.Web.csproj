@@ -221,11 +221,20 @@
     <Content Include="Views\Home\Position.cshtml" />
     <Content Include="Views\Account\Registration.cshtml" />
     <Content Include="Views\Account\LogOn.cshtml" />
+    <Content Include="Views\Account\LogOff.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DiplomApp.Helpers\DiplomApp.Helpers.csproj">
       <Project>{e6e4aaf7-5065-4ad4-a1d6-39986aadf7ed}</Project>
       <Name>DiplomApp.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DiplomApp.Interfaces\DiplomApp.Interfaces.csproj">
+      <Project>{f7787821-fd66-453d-85da-37684af5ce6c}</Project>
+      <Name>DiplomApp.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DiplomApp.Services\DiplomApp.Services.csproj">
+      <Project>{2ad98dbe-5d06-47ea-b9d9-2def36986660}</Project>
+      <Name>DiplomApp.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

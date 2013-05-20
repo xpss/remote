@@ -39,9 +39,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Converters\CredentialConverters.cs" />
-    <Compile Include="Converters\PointConverters.cs" />
-    <Compile Include="Converters\UserConverters.cs" />
     <Compile Include="CryptoHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -50,6 +47,9 @@
       <Project>{4ae61a4d-0cbd-474f-9a6d-10e244f80a55}</Project>
       <Name>DiplomApp.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Converters\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

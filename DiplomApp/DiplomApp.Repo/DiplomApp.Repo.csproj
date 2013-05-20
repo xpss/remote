@@ -33,6 +33,9 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject-3.0.0.15\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -65,6 +68,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="NinjectBinder.cs" />
     <Compile Include="Point.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -103,6 +107,10 @@
     <ProjectReference Include="..\DiplomApp.Helpers\DiplomApp.Helpers.csproj">
       <Project>{e6e4aaf7-5065-4ad4-a1d6-39986aadf7ed}</Project>
       <Name>DiplomApp.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DiplomApp.Interfaces\DiplomApp.Interfaces.csproj">
+      <Project>{f7787821-fd66-453d-85da-37684af5ce6c}</Project>
+      <Name>DiplomApp.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\DiplomApp.Models\DiplomApp.Models.csproj">
       <Project>{4ae61a4d-0cbd-474f-9a6d-10e244f80a55}</Project>

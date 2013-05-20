@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DiplomApp.Repo;
+using System.Reflection;
 
 namespace TempHelpTestProject
 {
@@ -19,6 +20,8 @@ namespace TempHelpTestProject
             //credRepo.Delete(3);
 
             //Console.WriteLine(credRepo.Test());
+
+            
 
             Console.ReadKey();
         }

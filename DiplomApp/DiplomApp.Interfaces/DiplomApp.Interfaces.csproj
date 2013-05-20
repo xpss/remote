@@ -39,8 +39,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UserInterface.cs" />
+    <Compile Include="ICredentials.cs" />
+    <Compile Include="IPoint.cs" />
+    <Compile Include="IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DiplomApp.Models\DiplomApp.Models.csproj">
+      <Project>{4ae61a4d-0cbd-474f-9a6d-10e244f80a55}</Project>
+      <Name>DiplomApp.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

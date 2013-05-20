@@ -2,10 +2,11 @@
 using DiplomApp.Helpers;
 using System;
 using DiplomApp.Models;
+using DiplomApp.Interfaces;
 
 namespace DiplomApp.Repo
 {
-    public class CredentialsRepo
+    public class CredentialsRepo: ICredentials
     {
         public bool Login(string login, string password)
         {
@@ -33,13 +34,18 @@ namespace DiplomApp.Repo
             }
         }
 
-        public bool Delete(CredentialsModel credentials)
+        public bool Update()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Remove(CredentialsModel credentials)
         {
             using (var dbEntities = new DBEntities())
             {
                 try
                 {
-                    dbEntities.Credentials.Remove(new Credential() {Id = credentials.Id, UserID = credentials.UserId, Login = credentials.Login, Password = credentials.Password });
+                    dbEntities.Credentials.Remove(new Credential() { Id = credentials.Id, UserID = credentials.UserId, Login = credentials.Login, Password = credentials.Password });
                     dbEntities.SaveChanges();
                     return true;
                 }
@@ -47,14 +53,6 @@ namespace DiplomApp.Repo
                 {
                     return false;
                 }
-            }
-        }
-
-        public string Test()
-        {
-            using (var dbEntities = new DBEntities())
-            {
-                return dbEntities.Credentials.First(p => p.UserID == 1).User.LastName;
             }
         }
     }

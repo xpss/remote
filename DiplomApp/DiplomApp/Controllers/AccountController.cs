@@ -27,6 +27,7 @@ namespace DiplomApp.Controllers
         [HttpPost]
         public ActionResult LogOn(LogOnModel logOnModel)
         {
+            Membership.ValidateUser(logOnModel.Login, logOnModel.Password);
             return null;
         }
     }

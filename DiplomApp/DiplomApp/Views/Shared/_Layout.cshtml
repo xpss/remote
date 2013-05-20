@@ -10,7 +10,7 @@
 <body>
     <header>
         <div id="logo"><a href="#">Remote monitoring</a></div>
-        <div id="Registration"> @Html.ActionLink("Registration", "Registration", "Account") | @Html.ActionLink("LogOn", "LogOn", "Account") </div>
+        <div id="Registration"> @Html.Partial("_LogOnPartial") </div>
         <nav>
             <ul>
                 @Html.ActionLink("home", "Index", "Home")

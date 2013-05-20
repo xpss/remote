@@ -222,6 +222,7 @@
     <Content Include="Views\Account\Registration.cshtml" />
     <Content Include="Views\Account\LogOn.cshtml" />
     <Content Include="Views\Account\LogOff.cshtml" />
+    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DiplomApp.Helpers\DiplomApp.Helpers.csproj">

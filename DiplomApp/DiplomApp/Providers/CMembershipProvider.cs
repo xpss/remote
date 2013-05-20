@@ -38,7 +38,9 @@ namespace DiplomApp.Providers
 
         public override MembershipUser CreateUser(string username, string password, string email, string passwordQuestion, string passwordAnswer, bool isApproved, object providerUserKey, out MembershipCreateStatus status)
         {
-            throw new NotImplementedException();
+            status = MembershipCreateStatus.Success;
+            return GetUser("Ivan", true);
+
         }
 
         public override bool DeleteUser(string username, bool deleteAllRelatedData)
@@ -83,7 +85,8 @@ namespace DiplomApp.Providers
 
         public override MembershipUser GetUser(string username, bool userIsOnline)
         {
-            throw new NotImplementedException();
+            return new MembershipUser("CMP", "Ivan", 1, "xx@yy.zz", null, null, true, true, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now);
+
         }
 
         public override MembershipUser GetUser(object providerUserKey, bool userIsOnline)
@@ -98,17 +101,17 @@ namespace DiplomApp.Providers
 
         public override int MaxInvalidPasswordAttempts
         {
-            get { throw new NotImplementedException(); }
+            get { return 5; }
         }
 
         public override int MinRequiredNonAlphanumericCharacters
         {
-            get { throw new NotImplementedException(); }
+            get { return 0; }
         }
 
         public override int MinRequiredPasswordLength
         {
-            get { throw new NotImplementedException(); }
+            get { return 5; }
         }
 
         public override int PasswordAttemptWindow
@@ -133,7 +136,7 @@ namespace DiplomApp.Providers
 
         public override bool RequiresUniqueEmail
         {
-            get { throw new NotImplementedException(); }
+            get { return false; }
         }
 
         public override string ResetPassword(string username, string answer)
@@ -161,6 +164,7 @@ namespace DiplomApp.Providers
             var credentialsService = new CredentialsService(iK.Get<ICredentials>());
 
             bool test = credentialsService.Login(username, password);
+            
             return test;
         }
     }

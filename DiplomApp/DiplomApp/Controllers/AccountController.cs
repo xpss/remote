@@ -26,7 +26,8 @@ namespace DiplomApp.Controllers
 
         public ActionResult LogOff()
         {
-            return View();
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
         }
         
         [HttpPost]
@@ -34,6 +35,7 @@ namespace DiplomApp.Controllers
         {
             if (Membership.ValidateUser(logOnModel.Login, logOnModel.Password))
             {
+                FormsAuthentication.SetAuthCookie(logOnModel.Login, logOnModel.RememberMe);
                 return RedirectToAction("Index", "Home");
             }
             return View();

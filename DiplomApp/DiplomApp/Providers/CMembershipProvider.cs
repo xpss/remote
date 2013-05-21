@@ -5,15 +5,18 @@ using System.Reflection;
 using System.Web;
 using System.Web.Security;
 using DiplomApp.Services;
-using Ninject;
-using Ninject.Modules;
-using System.Configuration;
 using DiplomApp.Interfaces;
+using DiplomApp.Helpers;
+using Ninject;
 
 namespace DiplomApp.Providers
 {
     public class CMembershipProvider : MembershipProvider
     {
+       CredentialsService credentialsService = new CredentialsService(BinderHelper.iKernel.Get<ICredentials>());
+       UserService userService = new UserService(BinderHelper.iKernel.Get<IUser>());
+       
+
         public override string ApplicationName
         {
             get
@@ -39,7 +42,8 @@ namespace DiplomApp.Providers
         public override MembershipUser CreateUser(string username, string password, string email, string passwordQuestion, string passwordAnswer, bool isApproved, object providerUserKey, out MembershipCreateStatus status)
         {
             status = MembershipCreateStatus.Success;
-            return GetUser("Ivan", true);
+
+            return null;
 
         }
 
@@ -156,16 +160,7 @@ namespace DiplomApp.Providers
 
         public override bool ValidateUser(string username, string password)
         {
-            Assembly asm = Assembly.LoadFrom(ConfigurationManager.AppSettings.Get("path"));
-            Type binderType = asm.GetType("DiplomApp.Repo.NinjectBinder");
-            var binderModul = (INinjectModule)Activator.CreateInstance(binderType);
-            IKernel iK = new StandardKernel(binderModul);
-
-            var credentialsService = new CredentialsService(iK.Get<ICredentials>());
-
-            bool test = credentialsService.Login(username, password);
-            
-            return test;
+            return credentialsService.Login(username, password);
         }
     }
 }

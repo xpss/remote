@@ -6,7 +6,7 @@ using DiplomApp.Interfaces;
 
 namespace DiplomApp.Repo
 {
-    public class CredentialsRepo: ICredentials
+    public class CredentialsRepo : ICredentials
     {
         public bool Login(string login, string password)
         {

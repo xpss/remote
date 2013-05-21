@@ -19,6 +19,13 @@ namespace DiplomApp.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Registration(RegisterModel registerModel)
+        {
+            //Membership.CreateUser();
+            return RedirectToAction("Index", "Home");
+        }
+
         public ActionResult LogOn()
         {
             return View();

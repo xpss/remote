@@ -19,7 +19,7 @@ namespace DiplomApp.Controllers
             return View();
         }
 
-        [Authorize]
+        [Authorize(Roles="A")]
         public ActionResult Position()
         {
             return View();

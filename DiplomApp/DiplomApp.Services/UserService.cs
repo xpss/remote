@@ -16,6 +16,9 @@ namespace DiplomApp.Services
             _iUser = iUser;
         }
 
-
+        public bool Add()
+        {
+            return _iUser.Add();
+        }
     }
 }

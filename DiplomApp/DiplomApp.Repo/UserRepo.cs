@@ -34,7 +34,7 @@ namespace DiplomApp.Repo
 
         public bool Add()
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public bool Update()

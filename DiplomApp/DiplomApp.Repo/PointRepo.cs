@@ -8,7 +8,7 @@ using DiplomApp.Interfaces;
 
 namespace DiplomApp.Repo
 {
-    public class PointRepo: IPoint
+    public class PointRepo : IPoint
     {
         public IEnumerable<PointModel> GetAllPoint()
         {

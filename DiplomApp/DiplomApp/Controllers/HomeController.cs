@@ -19,7 +19,7 @@ namespace DiplomApp.Controllers
             return View();
         }
 
-        [Authorize(Roles="A")]
+        [Authorize]
         public ActionResult Position()
         {
             return View();
@@ -35,6 +35,11 @@ namespace DiplomApp.Controllers
         public JsonResult GetData()
         {
             return Json(PointList.Point, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult GetHistory()
+        {
+            return View();
         }
 
     }

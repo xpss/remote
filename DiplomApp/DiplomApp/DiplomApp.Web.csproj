@@ -100,6 +100,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Converters\ModelConverters.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -235,6 +236,10 @@
     <ProjectReference Include="..\DiplomApp.Interfaces\DiplomApp.Interfaces.csproj">
       <Project>{f7787821-fd66-453d-85da-37684af5ce6c}</Project>
       <Name>DiplomApp.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DiplomApp.Models\DiplomApp.Models.csproj">
+      <Project>{4ae61a4d-0cbd-474f-9a6d-10e244f80a55}</Project>
+      <Name>DiplomApp.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\DiplomApp.Services\DiplomApp.Services.csproj">
       <Project>{2ad98dbe-5d06-47ea-b9d9-2def36986660}</Project>

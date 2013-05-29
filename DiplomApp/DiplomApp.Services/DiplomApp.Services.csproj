@@ -49,6 +49,10 @@
       <Project>{f7787821-fd66-453d-85da-37684af5ce6c}</Project>
       <Name>DiplomApp.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DiplomApp.Models\DiplomApp.Models.csproj">
+      <Project>{4ae61a4d-0cbd-474f-9a6d-10e244f80a55}</Project>
+      <Name>DiplomApp.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

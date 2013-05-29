@@ -18,6 +18,7 @@ namespace DiplomApp.Repo
         public int UserID { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
+        public int AccountType { get; set; }
     
         public virtual User User { get; set; }
     }

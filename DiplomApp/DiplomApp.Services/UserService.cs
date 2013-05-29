@@ -1,4 +1,5 @@
 ﻿using DiplomApp.Interfaces;
+using DiplomApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,9 +17,9 @@ namespace DiplomApp.Services
             _iUser = iUser;
         }
 
-        public bool Add()
+        public bool Add(UserModel userModel)
         {
-            return _iUser.Add();
+            return _iUser.Add(userModel);
         }
     }
 }

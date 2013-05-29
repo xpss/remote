@@ -11,6 +11,7 @@ using DiplomApp.Services;
 using DiplomApp.Helpers;
 using DiplomApp.Interfaces;
 using Ninject;
+using DiplomApp.Converters;
 
 namespace DiplomApp.Controllers
 {
@@ -30,15 +31,17 @@ namespace DiplomApp.Controllers
         [HttpPost]
         public ActionResult Registration(RegisterModel registerModel)
         {
-            if (userService.Add())
+            try
             {
-                return RedirectToAction("Index", "Home");
+                userService.Add(ModelConverters.RegisterModelToUserModel(registerModel));
+                return RedirectToAction("LogOn", "Account");
             }
-            else
+            catch (Exception)
             {
                 ModelState.AddModelError("Error", "Hello");
+                return View();
             }
-            return View();
+            
         }
 
         public ActionResult LogOn()

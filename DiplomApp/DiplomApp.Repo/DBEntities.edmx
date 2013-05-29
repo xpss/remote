@@ -26,6 +26,7 @@
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="Login" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="AccountType" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Points">
           <Key>
@@ -45,7 +46,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="Birthday" Type="datetime" Nullable="false" />
@@ -102,6 +103,7 @@
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <Property Name="Login" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AccountType" Type="Int32" Nullable="false" />
           <NavigationProperty Name="User" Relationship="DBModel.FK_Credentials_ToUser" FromRole="Credentials" ToRole="User" />
         </EntityType>
         <EntityType Name="Point">
@@ -123,7 +125,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="3" />
@@ -169,6 +171,7 @@
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="AccountType" ColumnName="AccountType" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

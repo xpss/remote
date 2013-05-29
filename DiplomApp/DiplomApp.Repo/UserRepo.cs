@@ -32,9 +32,28 @@ namespace DiplomApp.Repo
             throw new NotImplementedException();
         }
 
-        public bool Add()
+        public bool Add(UserModel userModel)
         {
-            return false;
+            using (var dbEntities = new DBEntities())
+            {
+                try
+                {
+                    dbEntities.Users.Add(new User()
+                                             {
+                                                 FirstName = userModel.FirstName,
+                                                 LastName = userModel.LastName,
+                                                 Mobile = userModel.Mobile,
+                                                 Address = userModel.Address,
+                                                 Birthday = userModel.Birthday
+                                             });
+                    dbEntities.SaveChanges();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    return false;
+                }
+            }
         }
 
         public bool Update()

@@ -5,7 +5,12 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
+
 using DiplomApp.Models;
+using DiplomApp.Services;
+using DiplomApp.Helpers;
+using DiplomApp.Interfaces;
+using Ninject;
 
 namespace DiplomApp.Controllers
 {
@@ -13,9 +18,26 @@ namespace DiplomApp.Controllers
     {
         //
         // GET: /Account/
+        CredentialsService credentialsService = new CredentialsService(BinderHelper.iKernel.Get<ICredentials>());
+        UserService userService = new UserService(BinderHelper.iKernel.Get<IUser>());
+
 
         public ActionResult Registration()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Registration(RegisterModel registerModel)
+        {
+            if (userService.Add())
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ModelState.AddModelError("Error", "Hello");
+            }
             return View();
         }
 
@@ -26,7 +48,8 @@ namespace DiplomApp.Controllers
 
         public ActionResult LogOff()
         {
-            return View();
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
         }
         
         [HttpPost]
@@ -34,6 +57,7 @@ namespace DiplomApp.Controllers
         {
             if (Membership.ValidateUser(logOnModel.Login, logOnModel.Password))
             {
+                FormsAuthentication.SetAuthCookie(logOnModel.Login, logOnModel.RememberMe);
                 return RedirectToAction("Index", "Home");
             }
             return View();

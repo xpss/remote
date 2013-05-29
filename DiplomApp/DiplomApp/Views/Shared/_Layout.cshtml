@@ -10,13 +10,13 @@
 <body>
     <header>
         <div id="logo"><a href="#">Remote monitoring</a></div>
-        <div id="Registration"> @Html.ActionLink("Registration", "Registration", "Account") | @Html.ActionLink("LogOn", "LogOn", "Account") </div>
+        <div id="Registration"> @Html.Partial("_LogOnPartial") </div>
         <nav>
             <ul>
                 @Html.ActionLink("home", "Index", "Home")
                 @Html.ActionLink("phone position", "Position", "Home")
                 <li><a href="#">chart</a></li>
-                <li><a href="#">contacts</a></li>
+                 @Html.ActionLink("history", "About", "Home")
                 @Html.ActionLink("about", "About", "Home")
             </ul>
         </nav>
@@ -26,11 +26,8 @@
             <div id="sidebar">
                 <div id="sidebar_top"></div>
                 <div id="sidebar_text">
-                    <h2>Sidebar header</h2>
-                    <p><strong>Lorem Lipsum</strong> dolor sit amet, consectetuer adipiscing elit. <a href="#">Nullam pharetra</a> tempus nunc. Donec feugiat lorem nec odio. Mauris vitae nisi sed mi rhoncus ultrices.</p>
-                    <h2>Sidebar header</h2>
-                    <p><strong>Lorem Lipsum</strong> dolor sit amet, consectetuer adipiscing elit. <a href="#">Nullam pharetra</a> tempus nunc. Donec feugiat lorem nec odio. Mauris vitae nisi sed mi rhoncus ultrices.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam pharetra tempus nunc. Donec feugiat lorem nec odio. Mauris vitae nisi sed mi rhoncus ultrices.</p>
+                    <h2>Free place</h2>
+                    <p><strong>Your</strong> AD here.</p>
                 </div>
                 <div id="sidebar_bottom"></div>
             </div>
@@ -41,7 +38,7 @@
         <footer>
             <div id="left_footer">&copy; Copyright 2012<strong> Xpss </strong>design </div>
             <div id="right_footer">
-                Design by <a href="http://www.xpss.servebeer.com" title="Xpss">Aleh Khvoshch</a>
+                Design by <a href="https://www.facebook.com/aleh.khvoshch" title="Xpss">Aleh Khvoshch</a>
             </div>
         </footer>
     </section>

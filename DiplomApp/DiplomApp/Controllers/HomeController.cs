@@ -37,5 +37,10 @@ namespace DiplomApp.Controllers
             return Json(PointList.Point, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult GetHistory()
+        {
+            return View();
+        }
+
     }
 }

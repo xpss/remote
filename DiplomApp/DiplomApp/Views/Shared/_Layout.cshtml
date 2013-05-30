@@ -10,13 +10,13 @@
 <body>
     <header>
         <div id="logo"><a href="#">Remote monitoring</a></div>
-        <div id="Registration"> @Html.Partial("_LogOnPartial") </div>
+        <div id="Registration">@Html.Partial("_LogOnPartial") </div>
         <nav>
             <ul>
                 @Html.ActionLink("home", "Index", "Home")
                 @Html.ActionLink("phone position", "Position", "Home")
-                <li><a href="#">chart</a></li>
-                 @Html.ActionLink("history", "About", "Home")
+                @Html.ActionLink("chart", "Chart", "Home")
+                @Html.ActionLink("history", "History", "Home")
                 @Html.ActionLink("about", "About", "Home")
             </ul>
         </nav>

@@ -1,14 +1,24 @@
-﻿using DiplomApp.Models;
-using System;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+using DiplomApp.Helpers;
+using DiplomApp.Interfaces;
+using DiplomApp.Models;
+using DiplomApp.Services;
+using Ninject;
+
 namespace DiplomApp.Controllers
 {
     public class HomeController : Controller
     {
+        PointService pointService = new PointService(BinderHelper.iKernel.Get<IPoint>());
+        CredentialsService credentialsService = new CredentialsService(BinderHelper.iKernel.Get<ICredentials>());
+        UserService userService = new UserService(BinderHelper.iKernel.Get<IUser>());
+
         public ActionResult Index()
         {
             return View();
@@ -29,6 +39,15 @@ namespace DiplomApp.Controllers
         public Action SetData(Point p)
         {
             PointList.SetNew(p);
+            pointService.Add(new PointModel()
+                                 {
+                                     X = p.X,
+                                     Y = p.Y,
+                                     Z = p.Z,
+                                     Xv = 0,
+                                     Yv = 0,
+                                     Zv = 0
+                                 });
             return null;
         }
 
@@ -37,7 +56,15 @@ namespace DiplomApp.Controllers
             return Json(PointList.Point, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult GetHistory()
+        [Authorize]
+        public ActionResult History()
+        {
+            IEnumerable<PointModel> points = pointService.GetAllPoint(credentialsService  User.Identity.Name);
+            return View(points);
+        }
+
+        [Authorize]
+        public ActionResult Chart()
         {
             return View();
         }

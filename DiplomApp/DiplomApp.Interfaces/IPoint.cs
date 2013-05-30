@@ -9,8 +9,8 @@ namespace DiplomApp.Interfaces
 {
     public interface IPoint
     {
-        IEnumerable<PointModel> GetAllPoint();
-        bool Add();
+        IEnumerable<PointModel> GetAllPoint(int id);
+        bool Add(PointModel pointModel);
         bool Update();
         bool Remove();
     }

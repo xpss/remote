@@ -1,0 +1,25 @@
+﻿@model IEnumerable<DiplomApp.Models.PointModel>
+
+@{
+    ViewBag.Title = "History";
+}
+
+<h1>History</h1>
+
+<table border="1" cellspacing="0" class="historyTable">
+    <tr>
+        <th>X</th>
+        <th>Y</th>
+        <th>Z</th>
+    </tr>
+    @{
+        foreach (var point in Model)
+        {
+            <tr>
+                <td>@point.X</td>
+                <td>@point.Y</td>
+                <td>@point.Z</td>
+            </tr>
+        }
+    }
+</table>

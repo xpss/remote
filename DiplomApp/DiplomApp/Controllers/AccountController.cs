@@ -17,11 +17,8 @@ namespace DiplomApp.Controllers
 {
     public class AccountController : Controller
     {
-        //
-        // GET: /Account/
         CredentialsService credentialsService = new CredentialsService(BinderHelper.iKernel.Get<ICredentials>());
         UserService userService = new UserService(BinderHelper.iKernel.Get<IUser>());
-
 
         public ActionResult Registration()
         {

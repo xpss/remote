@@ -251,3 +251,8 @@ footer {
 .right {
     text-align: right;
 }
+
+.historyTable {
+    border-color: #018bc1;
+    width: 200px;
+}

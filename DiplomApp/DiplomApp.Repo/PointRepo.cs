@@ -10,11 +10,11 @@ namespace DiplomApp.Repo
 {
     public class PointRepo : IPoint
     {
-        public IEnumerable<PointModel> GetAllPoint()
+        public IEnumerable<PointModel> GetAllPoint(int id)
         {
             using (var dbEntities = new DBEntities())
             {
-                return dbEntities.Points.Select(p => new PointModel()
+                return dbEntities.Points.Where(w => w.UserID == id).Select(p => new PointModel()
                                                   {
                                                         //User = p.UserID,
                                                         X = p.X,
@@ -24,13 +24,35 @@ namespace DiplomApp.Repo
                                                         Yv = p.vY,
                                                         Zv = p.vZ,
                                                         Date = p.Date
-                                                  });
+                                                  }).ToArray();
             }
         }
 
-        public bool Add()
+        public bool Add(PointModel pointModel)
         {
-            throw new NotImplementedException();
+            using (var dbEntities = new DBEntities())
+            {
+                try
+                {
+                    dbEntities.Points.Add(new Point()
+                                              {
+                                                  UserID = 11,
+                                                  X = pointModel.X,
+                                                  Y = pointModel.Y,
+                                                  Z = pointModel.Z,
+                                                  vX = pointModel.Xv,
+                                                  vY = pointModel.Yv,
+                                                  vZ = pointModel.Zv,
+                                                  Date = DateTime.Now
+                                              });
+                    dbEntities.SaveChanges();
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
         }
 
         public bool Update()

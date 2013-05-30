@@ -32,7 +32,7 @@ namespace DiplomApp.Repo
             throw new NotImplementedException();
         }
 
-        public bool Add(UserModel userModel)
+        public int Add(UserModel userModel)
         {
             using (var dbEntities = new DBEntities())
             {
@@ -47,11 +47,11 @@ namespace DiplomApp.Repo
                                                  Birthday = userModel.Birthday
                                              });
                     dbEntities.SaveChanges();
-                    return true;
+                    return GetUserIdByName(userModel.FirstName, userModel.LastName);
                 }
                 catch (Exception e)
                 {
-                    return false;
+                    return 0;
                 }
             }
         }
@@ -64,6 +64,14 @@ namespace DiplomApp.Repo
         public bool Remove()
         {
             throw new NotImplementedException();
+        }
+
+        public int GetUserIdByName(string firstName, string lastName)
+        {
+            using (var dbEntities = new DBEntities())
+            {
+                return dbEntities.Users.First(p => p.FirstName == firstName && p.LastName == lastName).Id;
+            }
         }
     }
 }

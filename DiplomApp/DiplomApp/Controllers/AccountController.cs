@@ -33,7 +33,8 @@ namespace DiplomApp.Controllers
         {
             try
             {
-                userService.Add(ModelConverters.RegisterModelToUserModel(registerModel));
+                int userId = userService.Add(ModelConverters.RegisterModelToUserModel(registerModel));
+                credentialsService.Add(userId, registerModel.Login, registerModel.Password);
                 return RedirectToAction("LogOn", "Account");
             }
             catch (Exception)

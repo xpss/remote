@@ -19,5 +19,10 @@ namespace DiplomApp.Services
         {
             return _iCredentials.Login(login, password);
         }
+
+        public bool Add(int userId, string login, string password)
+        {
+            return _iCredentials.Add(userId, login, password);
+        }
     }
 }

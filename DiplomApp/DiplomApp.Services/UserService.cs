@@ -17,7 +17,7 @@ namespace DiplomApp.Services
             _iUser = iUser;
         }
 
-        public bool Add(UserModel userModel)
+        public int Add(UserModel userModel)
         {
             return _iUser.Add(userModel);
         }

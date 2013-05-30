@@ -11,7 +11,7 @@ namespace DiplomApp.Interfaces
     {
         UserModel GetUserById(int id);
         IEnumerable<UserModel> GetAllUsers();
-        bool Add(UserModel userModel);
+        int Add(UserModel userModel);
         bool Update();
         bool Remove();
     }

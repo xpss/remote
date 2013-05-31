@@ -55,5 +55,13 @@ namespace DiplomApp.Repo
                 }
             }
         }
+
+        public int GetCurrentUserId(string login)
+        {
+            using (var dbEntities = new DBEntities())
+            {
+                return dbEntities.Credentials.First(p => p.Login == login).UserID;
+            }
+        }
     }
 }

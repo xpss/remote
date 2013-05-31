@@ -61,6 +61,7 @@ namespace DiplomApp.Controllers
                 FormsAuthentication.SetAuthCookie(logOnModel.Login, logOnModel.RememberMe);
                 return RedirectToAction("Index", "Home");
             }
+            ModelState.AddModelError("Error", "Hello");
             return View();
         }
     }

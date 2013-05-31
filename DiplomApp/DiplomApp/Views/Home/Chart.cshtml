@@ -2,4 +2,132 @@
     ViewBag.Title = "Chart";
 }
 
+<script src="@Url.Content("~/Scripts/ext-all-debug.js")" type="text/javascript"></script>
+
+<script>
+    Ext.onReady(function () {
+        Ext.define('XYPoint', {
+            extend: 'Ext.data.Model',
+            fields: ['X', 'Y', 'Z', 'ID']
+        });
+
+        //var store = Ext.create('Ext.data.Store', { model: 'XYPoint' });
+
+        //store.loadData(
+        //$.get("http://localhost:58638/Home/GetPoints", function (points) {
+            //for (var i = 0; i < points.length; i++) {
+            //    x[i] = { X: points[i].X, Y: points[i].Y, Z: points[i].Z, ID: i };
+            //}
+        //    return points;
+        //}));
+        //var store = Ext.create('Ext.data.Store', {
+        //    model: 'XYPoint',
+        //    data: x
+        //    //data: [{ ID: 1, X: 58, Y: 10, Z: 15 },
+        //    //       { ID: 2, X: 63, Y: 11, Z: 10 },
+        //    //       { ID: 3, X: -73, Y: 38, Z: 19, },
+        //    //       { ID: 4, X: 78, Y: 13, Z: 25 },
+        //    //      { ID: 5, X: 81, Y: 14, Z: 35 }]
+        //});
+        
+        var store = new Ext.data.JsonStore({
+            url: 'http://localhost:58638/Home/GetPoints',
+            root: 'XYPoint',
+            fields: ['X', 'Y', 'Z', 'ID']
+        });
+
+        //var store = new Ext.data.JsonStore({
+        //    url: 'http://localhost:58638/Home/GetPoints',
+        //    fields: [
+        //    { name: 'X', type: 'int' },
+        //    { name: 'Y' },
+        //    { name: 'Z' },
+        //    { name: 'Data' }
+        //    ]
+        //});
+
+
+        Ext.create('Ext.chart.Chart', {
+            renderTo: 'Chart',
+            width: 470,
+            height: 500,
+            store: store,
+            theme: 'Red',
+            legend: {
+                position: "bottom"
+            },
+            axes: [
+                {
+                    title: 'Time',
+                    type: 'Category',
+                    position: 'bottom',
+                    fields: ['ID'],
+                    grid: true
+                },
+                {
+                    title: 'Value',
+                    type: 'Numeric',
+                    position: 'left',
+                    fields: ['X', 'Y', 'Z'],
+                    minimum: -100,
+                    maximum: 100,
+                    minorTickSteps: 1,
+                }
+            ],
+            series: [{
+                type: 'line',
+                xField: 'ID',
+                yField: 'X',
+                smooth: true,
+                markerConfig: {
+                    type: "circle",
+                    size: 4,
+                    radius: 4,
+                    "stroke-width": 0,
+                    fill: "#FF0"
+                },
+                style:
+                {
+                    fill: "#FF0"
+                }
+            }, {
+                type: 'line',
+                xField: 'ID',
+                yField: 'Y',
+                smooth: true,
+                markerConfig: {
+                    type: "circle",
+                    size: 4,
+                    radius: 4,
+                    "stroke-width": 0,
+                    fill: "#0F0"
+                },
+                style:
+                {
+                    fill: "#0F0"
+                }
+            }, {
+                type: 'line',
+                xField: 'ID',
+                yField: 'Z',
+                smooth: true,
+                markerConfig: {
+                    type: "circle",
+                    size: 4,
+                    radius: 4,
+                    "stroke-width": 0,
+                    fill: "#F00"
+                },
+                style:
+                {
+                    fill: "#F00"
+                }
+            }]
+        });
+    });
+</script>
+
 <h1>Chart</h1>
+
+<div id="Chart"></div>
+

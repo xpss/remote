@@ -24,5 +24,10 @@ namespace DiplomApp.Services
         {
             return _iCredentials.Add(userId, login, password);
         }
+
+        public int GetCurrentUserId(string login)
+        {
+            return _iCredentials.GetCurrentUserId(login);
+        }
     }
 }

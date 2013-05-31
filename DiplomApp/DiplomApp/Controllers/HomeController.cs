@@ -59,7 +59,7 @@ namespace DiplomApp.Controllers
         [Authorize]
         public ActionResult History()
         {
-            IEnumerable<PointModel> points = pointService.GetAllPoint(credentialsService  User.Identity.Name);
+            IEnumerable<PointModel> points = pointService.GetAllPoint(credentialsService.GetCurrentUserId(User.Identity.Name));
             return View(points);
         }
 
@@ -68,6 +68,11 @@ namespace DiplomApp.Controllers
         {
             return View();
         }
+
+        public JsonResult GetPoints()
+        {
+            return Json(pointService.GetAllPoint(credentialsService.GetCurrentUserId(User.Identity.Name)), JsonRequestBehavior.AllowGet);
+        } 
 
     }
 }

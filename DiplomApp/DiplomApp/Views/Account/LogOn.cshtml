@@ -10,6 +10,7 @@
 
 @using (Html.BeginForm())
 {
+    @Html.ValidationSummary(true, "Login or password incorrect. Please try again.")
     <div>
         <fieldset>
             <legend>Account Information</legend>
@@ -20,6 +21,9 @@
                     </td>
                     <td>
                         @Html.TextBoxFor(m => m.Login)
+
+                    </td>
+                    <td>
                         @Html.ValidationMessageFor(m => m.Login)
                     </td>
                 </tr>
@@ -29,12 +33,15 @@
                     </td>
                     <td>
                         @Html.PasswordFor(m => m.Password)
+
+                    </td>
+                    <td>
                         @Html.ValidationMessageFor(m => m.Password)
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2" class="right">
-                        <input type="submit" value="LogOn"/>
+                        <input type="submit" value="LogOn" />
                     </td>
                 </tr>
             </table>

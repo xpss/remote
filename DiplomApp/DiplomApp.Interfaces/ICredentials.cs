@@ -13,5 +13,6 @@ namespace DiplomApp.Interfaces
         bool Add(int userId, string login, string password);
         bool Update();
         bool Remove(CredentialsModel credentials);
+        int GetCurrentUserId(string login);
     }
 }

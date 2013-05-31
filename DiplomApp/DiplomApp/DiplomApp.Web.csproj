@@ -182,6 +182,8 @@
     <Content Include="Content\Site.css" />
     <None Include="Properties\PublishProfiles\iis.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Scripts\ext-all-debug.js" />
+    <Content Include="Scripts\ext-all.js" />
     <Content Include="Scripts\glMatrix-0.9.5.min.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />

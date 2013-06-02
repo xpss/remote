@@ -7,12 +7,23 @@ using DiplomApp.Interfaces;
 
 namespace DiplomApp.Services
 {
-    public class CredentialsService
+    public class CredentialsService : DiplomApp.Interfaces.ICredentials
     {
         private ICredentials _iCredentials;
         public CredentialsService(ICredentials iCredentials)
         {
             _iCredentials = iCredentials;
+        }
+
+        public DiplomApp.Interfaces.ICredentials ICredentials
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
         }
 
         public bool Login(string login, string password)
@@ -28,6 +39,17 @@ namespace DiplomApp.Services
         public int GetCurrentUserId(string login)
         {
             return _iCredentials.GetCurrentUserId(login);
+        }
+
+
+        public bool Update()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Remove(Models.CredentialsModel credentials)
+        {
+            throw new NotImplementedException();
         }
     }
 }

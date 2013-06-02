@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DiplomApp.Services
 {
-    public class UserService
+    public class UserService : DiplomApp.Interfaces.IUser
     {
         IUser _iUser;
 
@@ -17,9 +17,40 @@ namespace DiplomApp.Services
             _iUser = iUser;
         }
 
+        public DiplomApp.Interfaces.IUser IUser
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
         public int Add(UserModel userModel)
         {
             return _iUser.Add(userModel);
+        }
+
+        public UserModel GetUserById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<UserModel> GetAllUsers()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Update()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Remove()
+        {
+            throw new NotImplementedException();
         }
     }
 }

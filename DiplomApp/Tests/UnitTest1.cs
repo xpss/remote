@@ -40,9 +40,9 @@ namespace Tests
             password.SendKeys("5189215");
             button.Click();
 
-            //IWebElement slink = driver.FindElement(By.CssSelector("#Registration a[href *= \"LogOff\"]"));
-            //slink.Click();
-            //Thread.Sleep(5000);
+            IWebElement slink = driver.FindElement(By.CssSelector("#Registration a[href *= \"LogOff\"]"));
+            slink.Click();
+            Thread.Sleep(5000);
         }
 
         [Test]
@@ -61,7 +61,7 @@ namespace Tests
             IWebElement lastName = driver.FindElement(By.Id("LastName"));
             IWebElement mobile = driver.FindElement(By.Id("Mobile"));
             IWebElement address = driver.FindElement(By.Id("Address"));
-            IWebElement birthday = driver.FindElement(By.Id("Birthday"));
+            IWebElement birthday = driver.FindElement(By.Name("Birthday"));
             IWebElement button = driver.FindElement(By.CssSelector("input[value=\"Register\"]"));
 
             login.SendKeys("xpss");
@@ -76,12 +76,75 @@ namespace Tests
             button.Click();
         }
 
-        [TearDown]
-        public void TearDown()
+        [Test]
+        public void LogOnErrorMessageTest()
         {
-            IWebElement link = driver.FindElement(By.CssSelector("#Registration a[href *= \"LogOff\"]"));
-            link.Click();
+            //IWebElement link = driver.FindElement(By.CssSelector("#Registration a:nth-child(2)"));
+
+            //link.Click();
+            //Thread.Sleep(1000);
+
+            //IWebElement login = driver.FindElement(By.Id("Login"));
+            //IWebElement password = driver.FindElement(By.Id("Password"));
+            //IWebElement button = driver.FindElement(By.CssSelector("input[value=\"LogOn\"]"));
+
+            //login.SendKeys("xpss");
+            //password.SendKeys("5189215");
+            //button.Click();
+
+            //IWebElement slink = driver.FindElement(By.CssSelector("#Registration a[href *= \"LogOff\"]"));
+            //slink.Click();
+            //Thread.Sleep(5000);
         }
+
+        [Test]
+        public void RegistrationExisiUserLogin()
+        {
+            //IWebElement link = driver.FindElement(By.CssSelector("#Registration a:nth-child(2)"));
+
+            //link.Click();
+            //Thread.Sleep(1000);
+
+            //IWebElement login = driver.FindElement(By.Id("Login"));
+            //IWebElement password = driver.FindElement(By.Id("Password"));
+            //IWebElement button = driver.FindElement(By.CssSelector("input[value=\"LogOn\"]"));
+
+            //login.SendKeys("xpss");
+            //password.SendKeys("5189215");
+            //button.Click();
+
+            //IWebElement slink = driver.FindElement(By.CssSelector("#Registration a[href *= \"LogOff\"]"));
+            //slink.Click();
+            //Thread.Sleep(5000);
+        }
+
+        [Test]
+        public void RegistrationConfirmPasswordErrorMessage()
+        {
+            //IWebElement link = driver.FindElement(By.CssSelector("#Registration a:nth-child(2)"));
+
+            //link.Click();
+            //Thread.Sleep(1000);
+
+            //IWebElement login = driver.FindElement(By.Id("Login"));
+            //IWebElement password = driver.FindElement(By.Id("Password"));
+            //IWebElement button = driver.FindElement(By.CssSelector("input[value=\"LogOn\"]"));
+
+            //login.SendKeys("xpss");
+            //password.SendKeys("5189215");
+            //button.Click();
+
+            //IWebElement slink = driver.FindElement(By.CssSelector("#Registration a[href *= \"LogOff\"]"));
+            //slink.Click();
+            //Thread.Sleep(5000);
+        }
+
+        //[TearDown]
+        //public void TearDown()
+        //{
+        //    IWebElement link = driver.FindElement(By.CssSelector("#Registration a[href *= \"LogOff\"]"));
+        //    link.Click();
+        //}
 
         //[TestFixtureTearDown]
         //public void TFTearDown()

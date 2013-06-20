@@ -118,13 +118,19 @@
     <Content Include="App_Data\DB_log.ldf">
       <DependentUpon>DB.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\images\body_all_bckg-light.jpg" />
     <Content Include="Content\images\body_all_bckg.jpg" />
+    <Content Include="Content\images\body_top_bckg-light.jpg" />
     <Content Include="Content\images\body_top_bckg.jpg" />
+    <Content Include="Content\images\footer_bckg-light.jpg" />
     <Content Include="Content\images\footer_bckg.jpg" />
+    <Content Include="Content\images\h1_bckg-light.jpg" />
     <Content Include="Content\images\h1_bckg.jpg" />
-    <Content Include="Content\images\nexus.jpg" />
+    <Content Include="Content\images\sidebar_bottom-light.jpg" />
     <Content Include="Content\images\sidebar_bottom.jpg" />
+    <Content Include="Content\images\sidebar_top-light.jpg" />
     <Content Include="Content\images\sidebar_top.jpg" />
+    <Content Include="Content\Light.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />

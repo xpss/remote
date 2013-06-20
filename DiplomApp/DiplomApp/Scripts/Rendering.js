@@ -5,8 +5,8 @@ var span = document.getElementById("Example");
 setInterval(start, 100);
 window.onload = webGLStart;
 function start() {
-    $.get("http://xpss.servebeer.com:25565/remotem/Home/GetData", function (point) {
-       // $.get("http://localhost:58638/Home/GetData", function (point) {
+    //$.get("http://xpss.servebeer.com:25565/remotem/Home/GetData", function (point) {
+        $.get("http://localhost:58638/Home/GetData", function (point) {
         span.innerHTML = "x:" + point.X + " y:" + point.Y + " z:" + point.Z;
         if (xy != point.X || xz != point.Y || zy != point.Z) {
             xy = -point.Z;
@@ -263,10 +263,10 @@ function tick() {
 function webGLStart() {
     var canvas = document.getElementById("canvas");
     initGL(canvas);
-    initShaders()
+    initShaders();
     initBuffers();
 
-    gl.clearColor(0.0, 0.0, 0.0, 1.0);
+    gl.clearColor(0.9, 0.9, 0.9, 1.0);
     gl.enable(gl.DEPTH_TEST);
 
     tick();

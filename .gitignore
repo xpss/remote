@@ -11,6 +11,8 @@ TestResults
 # User-specific files
 *.suo
 *.user
+*.mdf
+*.ldf
 
 # Build results
 [Dd]ebug/

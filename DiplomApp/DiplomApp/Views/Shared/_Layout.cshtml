@@ -30,7 +30,7 @@
                 updatedCookie += "; " + propName;
                 var propValue = props[propName];
                 if (propValue !== true) {
-                    updatedCookie += "=" + propValue;
+                    updatedCookie += "=" + propValue + ";path=/";
                 }
             }
             document.cookie = updatedCookie;

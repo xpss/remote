@@ -122,7 +122,8 @@ public class MainActivity extends Activity implements SensorEventListener {
 	{
 		//BufferedReader bufferedReader = null;
         HttpClient httpClient = new DefaultHttpClient();
-        HttpPost request = new HttpPost("http://xpss.servebeer.com:25565/remotem/Home/SetData");
+        //HttpPost request = new HttpPost("http://xpss.servebeer.com:25565/remotem/Home/SetData");
+        HttpPost request = new HttpPost("http://xpss.somee.com/Home/SetData");
         List<NameValuePair> postParameters = new ArrayList<NameValuePair>();
         postParameters.add(new BasicNameValuePair("X", x));
         postParameters.add(new BasicNameValuePair("Y", y));

@@ -126,6 +126,8 @@
     <Content Include="Content\images\footer_bckg.jpg" />
     <Content Include="Content\images\h1_bckg-light.jpg" />
     <Content Include="Content\images\h1_bckg.jpg" />
+    <Content Include="Content\images\off.jpg" />
+    <Content Include="Content\images\on-white.jpg" />
     <Content Include="Content\images\sidebar_bottom-light.jpg" />
     <Content Include="Content\images\sidebar_bottom.jpg" />
     <Content Include="Content\images\sidebar_top-light.jpg" />

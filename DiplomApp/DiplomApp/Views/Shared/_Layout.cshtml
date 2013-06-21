@@ -12,7 +12,6 @@
             return matches ? decodeURIComponent(matches[1]) : undefined;
         }
 
-        // уcтанавливает cookie
         function setCookie(name, value, props) {
             props = props || {};
             var exp = props.expires;
@@ -35,67 +34,67 @@
                 }
             }
             document.cookie = updatedCookie;
-
         }
 
-        // удаляет cookie
         function deleteCookie(name) {
             setCookie(name, null, { expires: -1 });
         }
 
-
-
-
-        //ставим выбранный вариант, заносим в coockie
         function setCss(css) {
-            alert("Set cookie" + css);
             setCookie('css', css, { expires: 1e9 });
             document.getElementsByTagName('link')[0].href = css;
+        }
+
+        function changeTheme() {
+            if (getCookie('css') == "@Url.Content("~/Content/Site.css")") {
+                setCss("@Url.Content("~/Content/Light.css")");
+            } else {
+                setCss("@Url.Content("~/Content/Site.css")");
+            }
         }
 
         var link = document.createElement('link');
         link.setAttribute('type', 'text/css');
         link.setAttribute('rel', 'stylesheet');
-        link.setAttribute('href', getCookie('css') || 'Site.css');
+        link.setAttribute('href', getCookie('css') || '@Url.Content("~/Content/Site.css")');
         document.getElementsByTagName('head')[0].appendChild(link);
     </script>
 </head>
-    <body>
-        <header>
-            <div id="logo"><a href="#">Remote monitoring</a></div>
-            <div id="Registration">@Html.Partial("_LogOnPartial") </div>
-            <nav>
-                <ul>
-                    @Html.ActionLink("home", "Index", "Home")
-                    @Html.ActionLink("phone position", "Position", "Home")
-                    @Html.ActionLink("chart", "Chart", "Home")
-                    @Html.ActionLink("history", "History", "Home")
-                    @Html.ActionLink("about", "About", "Home")
-                </ul>
-            </nav>
-        </header>
-        <section id="main">
-            <div id="content">
-                <div id="sidebar">
-                    <div id="sidebar_top"></div>
-                    <div id="sidebar_text">
-                        <h2>Free place</h2>
-                        <p><strong>Your</strong> AD here.</p>
-                    </div>
-                    <div id="sidebar_bottom"></div>
+<body>
+    <header>
+        <div id="logo"><a href="#">Remote monitoring</a></div>
+        <div id="Registration">@Html.Partial("_LogOnPartial") </div>
+        <nav>
+            <ul>
+                @Html.ActionLink("home", "Index", "Home")
+                @Html.ActionLink("phone position", "Position", "Home")
+                @Html.ActionLink("chart", "Chart", "Home")
+                @Html.ActionLink("history", "History", "Home")
+                @Html.ActionLink("about", "About", "Home")
+            </ul>
+        </nav>
+    </header>
+    <section id="main">
+        <div id="content">
+            <div id="sidebar">
+                <div id="sidebar_top"></div>
+                <div id="sidebar_text">
+                    <h2>Free place</h2>
+                    <p><strong>Your</strong> AD here.</p>
+                    <div id="themeToggle" onclick="changeTheme()"></div>
                 </div>
-                <div id="text">
-                    <input type="button" onclick='setCss("@Url.Content("~/Content/Site.css")")' name="Change" value="ChangeD"/>
-                    <input type="button" onclick='setCss("@Url.Content("~/Content/Light.css")")' name="Change2" value="ChangeL"/>
-                    @RenderBody()
-                </div>
+                <div id="sidebar_bottom"></div>
             </div>
-            <footer>
-                <div id="left_footer">&copy; Copyright 2012<strong> Xpss </strong>design </div>
-                <div id="right_footer">
-                    Design by <a href="https://www.facebook.com/aleh.khvoshch" title="Xpss">Aleh Khvoshch</a>
-                </div>
-            </footer>
-        </section>
-    </body>
+            <div id="text">
+                @RenderBody()
+            </div>
+        </div>
+        <footer>
+            <div id="left_footer">&copy; Copyright 2012<strong> Xpss </strong>design </div>
+            <div id="right_footer">
+                Design by <a href="https://www.facebook.com/aleh.khvoshch" title="Xpss">Aleh Khvoshch</a>
+            </div>
+        </footer>
+    </section>
+</body>
 </html>

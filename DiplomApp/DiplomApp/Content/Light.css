@@ -1,13 +1,4 @@
-﻿/*body {
-    font-size: .85em;
-    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
-    color: #232323;
-    background-color: #fff;
-    margin: 0;
-    padding: 0;
-}*/
-
-header,
+﻿header,
 footer,
 nav,
 section {
@@ -104,15 +95,22 @@ a {
     width: 740px;
     margin: 0 auto;
     padding: 0 20px;
-    color: white;    
-    font-size: 14px;   
+    color: white;
+    font-size: 14px;
 }
 
     #Registration a {
-         font-weight: bold;
-         text-decoration: none;
-         color: white;
+        font-weight: bold;
+        text-decoration: none;
+        color: white;
     }
+
+#themeToggle {
+    height: 65px;
+    width: 45px;
+    background-image:url('images/on-white.jpg');
+    margin: 0 auto;
+}
 
 nav {
     color: #fff;
@@ -257,4 +255,3 @@ footer {
     width: 300px;
     text-align: center;
 }
-

@@ -22,11 +22,18 @@ namespace DiplomApp.Helpers
                 Assembly asm;
                 try
                 {
-                    asm = Assembly.Load(wc.DownloadData("ftp://xpss.somee.com/www.xpss.somee.com/bin/DiplomApp.Repo.dll"));
+                    asm = Assembly.Load(wc.DownloadData("ftp://xpss:5189215xpss@xpss.somee.com/www.xpss.somee.com/bin/DiplomApp.Repo.dll"));
                 }
                 catch (Exception)
                 {
-                    asm = Assembly.LoadFrom(ConfigurationManager.AppSettings.Get("path"));
+                    try
+                    {
+                        asm = Assembly.LoadFrom(ConfigurationManager.AppSettings.Get("pathHome"));
+                    }
+                    catch(Exception)
+                    {
+                        asm = Assembly.LoadFrom(ConfigurationManager.AppSettings.Get("pathWork"));
+                    }
                 }
                 Type binderType = asm.GetType("DiplomApp.Repo.NinjectBinder");
                 var binderModul = (INinjectModule)Activator.CreateInstance(binderType);
@@ -41,7 +48,7 @@ namespace DiplomApp.Helpers
                 Assembly asm;
                 try
                 {
-                    asm = Assembly.Load(wc.DownloadData("ftp://xpss.somee.com/www.xpss.somee.com/bin/DiplomApp.Repo.dll"));
+                    asm = Assembly.Load(wc.DownloadData("ftp://xpss:5189215xpss@xpss.somee.com/www.xpss.somee.com/bin/DiplomApp.Repo.dll"));
                 }
                 catch (Exception)
                 {

@@ -7,27 +7,38 @@ using System.Threading.Tasks;
 using Ninject.Modules;
 using System.Configuration;
 using Ninject;
+using System.Net;
 
 namespace DiplomApp.Helpers
 {
     public class BinderHelper
     {
         public static IKernel iKernel { get; set; }
-        
+
         static BinderHelper()
         {
-            Assembly asm = Assembly.LoadFrom(ConfigurationManager.AppSettings.Get("path"));
-            Type binderType = asm.GetType("DiplomApp.Repo.NinjectBinder");
-            var binderModul = (INinjectModule)Activator.CreateInstance(binderType);
-            iKernel = new StandardKernel(binderModul);
-        }   
-    
+            using (var wc = new WebClient())
+            {
+                Assembly asm = Assembly.Load(wc.DownloadData("ftp://xpss.somee.com/www.xpss.somee.com/bin/DiplomApp.Repo.dll"));
+                //Assembly asm = Assembly.Load(wc.DownloadData("~/bin/DiplomApp.Repo.dll"));
+                //Assembly asm = Assembly.LoadFrom(ConfigurationManager.AppSettings.Get("path"));
+                Type binderType = asm.GetType("DiplomApp.Repo.NinjectBinder");
+                var binderModul = (INinjectModule)Activator.CreateInstance(binderType);
+                iKernel = new StandardKernel(binderModul);
+            }
+        }
+
         public IKernel GetKernel()
         {
-            Assembly asm = Assembly.LoadFrom(ConfigurationManager.AppSettings.Get("path"));
-            Type binderType = asm.GetType("DiplomApp.Repo.NinjectBinder");
-            var binderModul = (INinjectModule)Activator.CreateInstance(binderType);
-            return new StandardKernel(binderModul);
+            using (var wc = new WebClient())
+            {
+                Assembly asm = Assembly.Load(wc.DownloadData("ftp://xpss.somee.com/www.xpss.somee.com/bin/DiplomApp.Repo.dll"));
+                //Assembly asm = Assembly.Load(wc.DownloadData("~/bin/DiplomApp.Repo.dll"));
+                // Assembly asm = Assembly.LoadFrom(ConfigurationManager.AppSettings.Get("path"));
+                Type binderType = asm.GetType("DiplomApp.Repo.NinjectBinder");
+                var binderModul = (INinjectModule)Activator.CreateInstance(binderType);
+                return new StandardKernel(binderModul);
+            }
         }
     }
 }
